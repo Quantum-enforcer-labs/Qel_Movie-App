@@ -6,7 +6,7 @@ import { AlertTriangle, Loader2 } from "lucide-react";
 
 export function SearchPage() {
   const search = useSearch({ from: "/search" });
-  const query = search.query as string;
+  const query = typeof search.query === "string" ? search.query.trim() : "";
 
   const { data, isLoading, error, isError, isFetching } = useQuery({
     queryKey: ["search", query],
